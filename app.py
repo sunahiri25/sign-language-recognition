@@ -65,12 +65,12 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/about/')
+@app.route('/about')
 def about():
     return render_template('about.html')
 
 
-@app.route('/model/')
+@app.route('/model')
 def model():
     return render_template('model.html')
 
@@ -78,7 +78,7 @@ def model():
 def recognize_sign_language():
     hands = mp_hands.Hands(min_detection_confidence=0.7,
                            min_tracking_confidence=0.5)
-    clf = joblib.load('./model_svm.pkl')
+    clf = joblib.load('model_svm.pkl')
     cap = cv2.VideoCapture(0)
     previous_prediction = None
     predicted_string = ''

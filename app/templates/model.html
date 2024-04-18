@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Practice Your Skills</title>
+    <link rel="stylesheet" type="text/css" href="../static/model_style.css">
+    <script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav class="navbar" style="padding: 10px 40px 10px 50px;">
+        <span class="navbar-toggle" id="js-navbar-toggle">
+            <button class="togglebtn" onClick={this.buttonclicked}> <i class="fas fa-bars"></i></button>
+        </span>
+        <h5><a href="{{ url_for('index')}}" style="font-weight: bold;" class="logo">Sign Language
+                <span>Translator</span></a></h5>
+        <ul class="main-nav" id="js-menu">
+            <li>
+                <a href="{{ url_for('index')}}" class="nav-links">Tutorials</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('model')}}" class="nav-links orange" style="color: #ca92df;">Test Your Skill</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('about')}}" class="nav-links">About</a>
+            </li>
+
+        </ul>
+    </nav>
+    <div class="alert alert-success">
+        Recommended to use in a well-lit area and please show only the hand into camera
+    </div>
+
+
+    <h1 class="myheading" style="font-weight: bolder;"><i style="color:#ca92df ;" class="fas fa-hand-sparkles"></i>
+        Practice Alphabets</h1><br>
+    <!-- CONTENTS -->
+    <div style="margin-top: 20px;">
+
+        <div class="column">
+            <div class="container" style="width: 400px;">
+
+                <button id="buttonPredict" class="btn btn-dark" data-toggle="button">Start
+                    Practicing!</button><br />
+                <br>
+
+
+                <h3>Instructions:</h3>
+
+                Click on the "Start Practicing!" button to start the webcam. <br>
+                Make sure your hand is visible in the webcam. <br>
+                Try to make the sign of the alphabet. <br>
+                The corresponding alphabet will be displayed on the screen. <br>
+                Click on the "Stop" button to stop the webcam. <br>
+                <br />
+                <button id="buttonStop" class="btn btn-dark"
+                    style="margin-left: 38%; background-color:cadetblue;">Stop</button><br />
+            </div>
+        </div>
+    </div>
+
+    <!-- MEDIAPIPE OUTPUT -->
+    <div class="column">
+        <div style="padding: 10px;">
+            <img id="video-feed" src="../static/loading.gif" style="border: #ca92df 2px solid;" />
+        </div>
+    </div>
+
+    <script>
+        var videoFeed = document.getElementById('video-feed');
+
+        document.getElementById('buttonPredict').addEventListener('click', function () {
+            videoFeed.src = "{{ url_for('video_feed') }}"; // Start webcam feed
+        });
+
+        document.getElementById('buttonStop').addEventListener('click', function () {
+            videoFeed.src = "../static/loading.gif"; // Set source back to loading GIF when stopping webcam
+        });
+    </script>
+
+</body>
+
+</html>

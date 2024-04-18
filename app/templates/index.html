@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Translator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
+
+    <!-- <link rel="icon" type="image/png" href="docs/logo.png"> -->
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <script src="{{url_for('static', filename='tutorial.js')}}"></script>
+    <style>
+        #video-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        #video-feed {
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <span class="navbar-toggle" id="js-navbar-toggle">
+            <button class="togglebtn" onClick={this.buttonclicked}> <i class="fas fa-bars"></i></button>
+        </span>
+        <h5><a href="{{ url_for('index')}}" class="logo">Sign Language <span>Translator</span></a></h5>
+        <ul class="main-nav" id="js-menu">
+            <li>
+                <a href="{{ url_for('index')}}" class="nav-links orange" style="color: #ca92df;">Tutorials</a>
+            </li>
+
+
+            <li>
+                <a href="{{ url_for('model')}}" class="nav-links">Test Your Skill</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('about')}}" class="nav-links">About</a>
+            </li>
+
+        </ul>
+    </nav>
+    <br>
+    <h1 class="text-center" style="font-family: 'Pacifico',cursive;">The Learning Spot <i
+            style="font-size: 45px;color: #ca92df;" class="fas fa-graduation-cap"></i></h1>
+    <br><br>
+
+    <div class="tut-container">
+        <div class="item1" id="image-loader">
+            <!-- <img src="../static/ISL_Gifs/29-hello.gif" class="tutorial-image"> -->
+            <img src="static/ISL_Gifs/65-sign-language-interpreter.gif" class="tutorial-image">
+
+        </div>
+
+        <div class="alpha-containers">
+            <div class="alpha">
+                <div class=" alphabetcard">
+                    <h5 class="card-header text-center " style="font-size: 26px;margin-bottom: 0px;">
+                        Alphabets<span style="color:#ca92df"><i class="fas fa-sort-alpha-up ml-"></i></span>
+                    </h5>
+                    <div class=" myflexes">
+                        <div class="allbuttons-4">
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="a" id="a" type="button">A</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="b" id="b" type="button">B</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="c" id="c" type="button">C</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="d" id="d" type="button">D</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="e" id="e" type="button">E</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="f" id="f" type="button">F</button></a></span>
+
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="g" id="g" type="button">G</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="h" id="h" type="button">H</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="i" id="i" type="button">I</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="j" id="j" type="button">J</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="k" id="k" type="button">K</button></a></span>
+
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="l" id="l" type="button">L</button></a></span>
+
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="m" id="m" type="button">M</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="n" id="n" type="button">N</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="o" id="o" type="button">O</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="p" id="p" type="button">P</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="q" id="q" type="button">Q</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="r" id="r" type="button">R</button></a></span>
+
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="s" id="s" type="button">S</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="t" id="t" type="button">T</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="u" id="u" type="button">U</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="v" id="v" type="button">V</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="w" id="w" type="button">W</button></a></span>
+                            <span><a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive;"
+                                        value="x" id="x" type="button">X</button></a></span>
+                        </div>
+                        <div class="allbuttons-5">
+                            <div style="margin-left: 5px;"> <a href="#test"><button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive; padding-right:2rem"
+                                        value="y" id="y" type="button">Y </button></a></div>
+
+                            <div style="margin-right: 3px;">
+                                <a href="#test"> <button
+                                        style="border:none;background-color:transparent;font-size:30px;font-family: 'Patua One', cursive ;padding-left:2rem"
+                                        value="z" id="z" type="button">Z</button></a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <br><br>
+
+    <br><br> <br><br> <br><br>
+    <br><br>
+
+    </div>
+
+    <script>
+        let mainNav = document.getElementById('js-menu');
+        let navBarToggle = document.getElementById('js-navbar-toggle');
+
+        navBarToggle.addEventListener('click', function () {
+            mainNav.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

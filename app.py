@@ -78,7 +78,7 @@ def model():
 def recognize_sign_language():
     hands = mp_hands.Hands(min_detection_confidence=0.7,
                            min_tracking_confidence=0.5)
-    clf = joblib.load('model_svm.pkl')
+    clf = joblib.load('E:\CourseHKII_Grade3\seminar\model_svm.pkl')
     cap = cv2.VideoCapture(0)
     previous_prediction = None
     predicted_string = ''
@@ -107,22 +107,19 @@ def recognize_sign_language():
 
                         if cleaned_landmark:
                             landmarks_history.append(cleaned_landmark)
-                            if len(landmarks_history) > 10:
-                                landmarks_history.pop(0)
-                                if check_hand_stability(landmarks_history):
-                                    y_pred = clf.predict(cleaned_landmark)
-                                    if y_pred[0] != previous_prediction:
-                                        previous_prediction = y_pred[0]
-                                        if y_pred[0] == 'del':
-                                            predicted_string = ''
-                                            previous_prediction = None
-                                        elif y_pred[0] == 'space':
-                                            predicted_string += ' '
-                                        else:
-                                            predicted_string += y_pred[0]
+                            if len(landmarks_history) > 15:
+                                y_pred = clf.predict(cleaned_landmark)
+                                landmarks_history = []
+                                if y_pred[0] == 'del':
+                                    predicted_string = ''
+
+                                elif y_pred[0] == 'space':
+                                    predicted_string += ' '
+                                else:
+                                    predicted_string += y_pred[0]
 
                             (text_width, text_height), _ = cv2.getTextSize(
-                                predicted_string[-10:], cv2.FONT_HERSHEY_SIMPLEX, 1, 2)
+                                predicted_string[-11:], cv2.FONT_HERSHEY_SIMPLEX, 1, 2)
 
                             x1 = 50
                             y1 = 50
@@ -134,7 +131,7 @@ def recognize_sign_language():
                                               (x2, y2), (255, 255, 255), 2)
 
                             cv2.putText(
-                                image, predicted_string[-10:], (x1 +
+                                image, predicted_string[-11:], (x1 +
                                                                 10, y1 + text_height + 10),
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (
                                     0, 0, 255), 2, cv2.LINE_AA

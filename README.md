@@ -1,7 +1,7 @@
 # Sign Language Recognition ☝️🤞🫳🤟👋
 
 ## Introduction
-Sign Language Recognition is a repository dedicated to developing machine learning models and systems for recognizing and interpreting sign language gestures. The goal of this project is to bridge the communication gap between individuals who use sign language as their primary means of communication and those who do not understand it.
+Sign Language Recognition is a repository that develops machine learning models and systems for recognizing and interpreting sign language gestures. This project aims to bridge the communication gap between individuals who use sign language as their primary means of communication and those who do not understand it.
 
 ## Features
 - Dataset collection: Dataset contains a collection of 30,192 images. This dataset can be accessed through the following URL: [ASL(American Sign Language) Alphabet Dataset | Kaggle](https://www.kaggle.com/datasets/debashishsau/aslamerican-sign-language-aplhabet-dataset).
@@ -26,4 +26,4 @@ To use the Sign Language Recognition repository, follow these steps:
    ![image](https://github.com/sunahiri25/sign-language-recognition/assets/104315103/7d79b291-d0a8-4329-a300-496ae822aa0e)
 
 ## Contact
-If you have any questions, suggestions, or feedback, please feel free to contact us at 📧 minhanhminky@gmail.com. We appreciate your interest in Sign Language Recognition and look forward to hearing from you!
+If you have any questions, suggestions, or feedback, please contact us at 📧 minhanhminky@gmail.com. We appreciate your interest in Sign Language Recognition and look forward to hearing from you!

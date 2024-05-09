@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Game</title>
+    <link rel="stylesheet" type="text/css" href="../static/model_style.css">
+    <script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #d6eeee;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar" style="padding: 10px 40px 10px 50px;">
+        <span class="navbar-toggle" id="js-navbar-toggle">
+            <button class="togglebtn" onClick={this.buttonclicked}> <i class="fas fa-bars"></i></button>
+        </span>
+        <h5><a href="{{ url_for('index')}}" style="font-weight: bold;" class="logo">Sign Language
+                <span>Translator</span></a></h5>
+        <ul class="main-nav" id="js-menu">
+            <li>
+                <a href="{{ url_for('index')}}" class="nav-links">Tutorials</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('model')}}" class="nav-links">Practice</a>
+            </li>
+
+            <li>
+                <a href="{{url_for('game')}}" class="nav-links orange" style="color: #ca92df;">Game</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('about')}}" class="nav-links">About</a>
+            </li>
+
+        </ul>
+    </nav>
+    <div class="alert alert-success">
+        Recommended to use in a well-lit area and please show only the hand into camera
+    </div>
+
+
+    <h1 class="myheading" style="font-weight: bolder;"><i style="color:#ca92df ;" class="fas fa-gamepad"></i>
+        Sign Language Game <i style="color:#ca92df ;" class="fas fa-gamepad"></i></h1><br>
+    <!-- CONTENTS -->
+    <div style="margin-top: 20px;">
+
+        <div class="column">
+            <div class="container" style="width: 400px;">
+
+                <button id="buttonPredict" class="btn btn-dark" style="margin-left: 30%;" data-toggle="button">Start
+                    Playing!</button><br />
+                <br>
+                <h3>Instructions:</h3>
+                <p>
+                    1️⃣ Click on the "Start Playing!" button to play game. <br>
+                    2️⃣ Make sure your hand is visible in the webcam. <br>
+                    3️⃣ Try to make the sign of the alphabet on screen. <br>
+                    4️⃣ Click on the "Reload" button to try again. <br>
+                </p>
+                <br />
+                <button id="buttonStop" class="btn btn-dark"
+                    style="margin-left: 35%; background-color:cadetblue;">Reload</button><br />
+            </div>
+            <div class="container" style="width: 400px;">
+                <div style='height: 30px;background-color: #ca92df;'>
+                    <h3 style="text-align: center; color: white;">👑 Best Scores 👑</h3>
+                </div>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Time</th>
+                        <th>Score</th>
+                    </tr>
+                    {% for i in range(0, 5) %}
+                    <tr>
+                        <td>{{i+1}}</td>
+                        <td>{{scores[i][0]}}</td>
+                        <td>{{scores[i][1]}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MEDIAPIPE OUTPUT -->
+    <div class="column">
+        <div style="padding: 10px;">
+            <img id="game-feed" src="../static/loading.gif" style="border: #ca92df 2px solid; width: 502px;" />
+        </div>
+    </div>
+
+    <script>
+        var videoFeed = document.getElementById('game-feed');
+
+        document.getElementById('buttonPredict').addEventListener('click', function () {
+            videoFeed.src = "{{ url_for('game_feed') }}"; // Start webcam feed
+        });
+
+        document.getElementById('buttonStop').addEventListener('click', function () {
+            location.reload(); // Stop webcam feed
+        });
+
+    </script>
+
+</body>
+
+</html>

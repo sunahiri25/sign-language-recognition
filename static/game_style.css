@@ -1,0 +1,33 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    margin-top: 50px;
+}
+
+#character {
+    font-size: 200px;
+    margin-top: 50px;
+    color: #ca92df;
+}
+
+#score {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+#instruction {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#video {
+    display: none;
+}
+
+#canvas {
+    display: none;
+}
